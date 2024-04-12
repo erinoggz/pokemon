@@ -1,9 +1,13 @@
 import React from 'react';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import styles from './styles';
 
-const List = ({data}): React.JSX.Element => {
+interface ListItemProps {
+  data: {name: string};
+}
+
+const List = ({data}: ListItemProps): React.JSX.Element => {
   return (
     <View style={styles.item}>
       <View>

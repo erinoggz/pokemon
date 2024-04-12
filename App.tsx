@@ -7,10 +7,10 @@
  */
 
 import React from 'react';
-import HomeScreen from './app/screens/HomeScreen';
+import {Router} from './app/navigation/Router';
 
 const App = (): React.JSX.Element => {
-  return <HomeScreen />;
+  return <Router />;
 };
 
 export default App;
