@@ -1,11 +1,29 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {TextInput, TextInputProps, TextStyle} from 'react-native';
+import styles from './style';
+import {COLORS} from '../../../constants/theme';
 
-const Input = (): React.JSX.Element => {
+interface InputProps extends TextInputProps {
+  placeholder?: string;
+  background?: string;
+  style?: TextStyle;
+}
+
+const Input: React.FC<InputProps> = ({
+  placeholder = '',
+  background,
+  value,
+  style,
+  ...rest
+}) => {
   return (
-    <View>
-      <Text>Input</Text>
-    </View>
+    <TextInput
+      style={[styles.textinput, {backgroundColor: background, ...style}]}
+      value={value}
+      placeholderTextColor={COLORS.primary}
+      {...rest}
+      placeholder={placeholder}
+    />
   );
 };
 
