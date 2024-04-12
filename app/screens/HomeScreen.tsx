@@ -2,6 +2,8 @@ import React from 'react';
 import {View} from 'react-native';
 import Input from '../component/Input/Input';
 import Search from 'react-native-vector-icons/AntDesign';
+import List from '../component/card/List';
+import {pokemonDummyData} from '../../constants/data';
 
 const HomeScreen = (): React.JSX.Element => {
   return (
@@ -16,6 +18,7 @@ const HomeScreen = (): React.JSX.Element => {
           <Search name="search1" size={25} color="grey" />
         </View>
       </View>
+      <List data={pokemonDummyData} />
     </View>
   );
 };
