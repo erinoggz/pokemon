@@ -25,7 +25,7 @@ export function DetailsScreen({route}): React.JSX.Element {
   return (
     <ScrollView style={styles.view1}>
       <View style={styles.view2}>
-        <View>
+        <View style={styles.imageContainer}>
           <Image
             style={styles.image}
             source={{
