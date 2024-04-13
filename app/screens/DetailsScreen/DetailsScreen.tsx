@@ -4,8 +4,13 @@ import {useQuery} from '@tanstack/react-query';
 import {fetchFn, searchPokemon} from '../../api/api';
 import {filterString, removeEscapeCharacters} from '../../../constants/helper';
 import styles from './styles';
+import Loader from '../../component/Loader/Loader';
 
-export function DetailsScreen({route}) {
+type DetailsProps = {
+  route: {params: {name: string}};
+};
+
+export function DetailsScreen({route}: DetailsProps) {
   const {name} = route.params;
   const {data} = useQuery(['pokemon', name], () => searchPokemon(name));
   const {isLoading: isSpeciesLoading, data: species} = useQuery(
@@ -15,6 +20,11 @@ export function DetailsScreen({route}) {
       enabled: !!data,
     },
   );
+
+  // Render loader while species is loading
+  if (isSpeciesLoading) {
+    return <Loader />;
+  }
 
   return (
     <ScrollView style={styles.view1}>
