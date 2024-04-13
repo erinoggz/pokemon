@@ -6,11 +6,7 @@ import {filterString, removeEscapeCharacters} from '../../../constants/helper';
 import styles from './styles';
 import Loader from '../../component/Loader/Loader';
 
-type DetailsProps = {
-  route: {params: {name: string}};
-};
-
-export function DetailsScreen({route}: DetailsProps) {
+export function DetailsScreen({route}): React.JSX.Element {
   const {name} = route.params;
   const {data} = useQuery(['pokemon', name], () => searchPokemon(name));
   const {isLoading: isSpeciesLoading, data: species} = useQuery(
