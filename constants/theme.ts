@@ -16,8 +16,35 @@ export const SIZES = {
   f2: 12,
   f3: 14,
   f4: 16,
+  f5: 18,
+  f6: 24,
 };
 
-const appTheme = {COLORS, SIZES};
+export const FONTS = {
+  extra_extra_small: {fontFamily: 'Nunito-Bold', fontSize: SIZES.f0},
+  extra_small: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: SIZES.f1,
+  },
+  small: {fontFamily: 'Nunito-Bold', fontSize: SIZES.f2},
+  base_small: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: SIZES.f3,
+  },
+  base_large: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: SIZES.f4,
+  },
+  base: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: SIZES.f5,
+  },
+  medium: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: SIZES.f6,
+  },
+};
+
+const appTheme = {COLORS, SIZES, FONTS};
 
 export default appTheme;
