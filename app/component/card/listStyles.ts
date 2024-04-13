@@ -5,10 +5,10 @@ const styles = StyleSheet.create({
   circleCard: {
     width: 65,
     height: 65,
-    backgroundColor: COLORS.black,
     borderRadius: 100,
-    marginRight: 15,
     alignItems: 'center',
+    borderColor: COLORS.white,
+    borderWidth: 2,
   },
   item: {
     backgroundColor: COLORS.primary,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   image: {aspectRatio: 1, width: '80%', height: '80%'},
-  text: {fontSize: SIZES.f4, fontFamily: 'Nunito-Bold'},
+  text: {fontSize: SIZES.f4, fontFamily: 'Nunito-Bold', marginLeft: 15},
 });
 
 export default styles;

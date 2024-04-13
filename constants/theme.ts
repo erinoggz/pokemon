@@ -1,7 +1,7 @@
 export const COLORS = {
   white: '#FFFFFF',
   black: '#000000',
-  grey: 'grey',
+  grey: '#e8e8e8',
   primary: '#f9f8eb',
   secondary: 'teal',
 };
@@ -18,6 +18,7 @@ export const SIZES = {
   f4: 16,
   f5: 18,
   f6: 24,
+  f7: 26,
 };
 
 export const FONTS = {
@@ -42,6 +43,10 @@ export const FONTS = {
   medium: {
     fontFamily: 'Nunito-Bold',
     fontSize: SIZES.f6,
+  },
+  large: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: SIZES.f7,
   },
 };
 

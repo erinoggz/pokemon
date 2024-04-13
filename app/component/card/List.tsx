@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
-import styles from './styles';
+import styles from './listStyles';
 
 interface ListProps {
   name: string;
