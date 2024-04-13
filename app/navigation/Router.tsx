@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import {COLORS} from '../../constants/theme';
 import {DetailsScreen} from '../screens/DetailsScreen/DetailsScreen';
-import {SearchScreen} from '../screens/SearchScreen';
+import {SearchScreen} from '../screens/SearchScreen/SearchScreen';
 import {Pressable} from 'react-native';
 import Search from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
