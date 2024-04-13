@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {COLORS, SIZES} from '../../../constants/theme';
+import {COLORS, SIZES, FONTS} from '../../../constants/theme';
 
 const styles = StyleSheet.create({
   circleCard: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   image: {aspectRatio: 1, width: '80%', height: '80%'},
-  text: {fontSize: SIZES.f4, fontFamily: 'Nunito-Bold', marginLeft: 15},
+  text: {...FONTS.base_large, marginLeft: 15},
 });
 
 export default styles;
