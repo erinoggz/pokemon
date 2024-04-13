@@ -1,12 +1,11 @@
 import React from 'react';
-import {View, ActivityIndicator, Pressable, StyleSheet} from 'react-native';
+import {Pressable} from 'react-native';
 import {useQuery} from '@tanstack/react-query';
 import {useNavigation} from '@react-navigation/native';
 
 import {searchPokemon} from '../api/api';
 import List from '../component/card/List';
 import {getTypeColor} from '../../constants/helper';
-import {COLORS, SIZES} from '../../constants/theme';
 import Loader from '../component/Loader/Loader';
 
 /**
@@ -40,8 +39,8 @@ const ListScreen = ({name}: {name: string}): JSX.Element => {
     <Pressable onPress={() => goToDetailsPage(name)}>
       <List
         name={data.name}
-        background={getTypeColor(data.types[0].type.name)}
-        imageUri={data.sprites.other['official-artwork'].front_default}
+        background={getTypeColor(data?.types[0]?.type?.name)}
+        imageUri={data?.sprites?.other['official-artwork']?.front_default}
       />
     </Pressable>
   );
