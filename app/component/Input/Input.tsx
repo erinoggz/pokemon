@@ -20,7 +20,7 @@ const Input: React.FC<InputProps> = ({
     <TextInput
       style={[styles.textinput, {backgroundColor: background, ...style}]}
       value={value}
-      placeholderTextColor={COLORS.primary}
+      placeholderTextColor={COLORS.black}
       {...rest}
       placeholder={placeholder}
     />
