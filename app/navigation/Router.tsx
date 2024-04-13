@@ -50,6 +50,7 @@ export const Router = (): React.JSX.Element => {
         name="Details"
         options={{
           headerTitle: '',
+          headerTintColor: COLORS.secondary,
           headerShadowVisible: false,
         }}
       />
