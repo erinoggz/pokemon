@@ -5,8 +5,8 @@ export const COLORS = {
   white: '#FFFFFF',
   black: '#000000',
   grey: 'grey',
-  primary: '#000000',
-  secondary: '#000000',
+  primary: '#f9f8eb',
+  secondary: 'teal',
 };
 
 export const SIZES = {
