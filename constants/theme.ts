@@ -1,6 +1,3 @@
-import {Dimensions} from 'react-native';
-const {width, height} = Dimensions.get('window');
-
 export const COLORS = {
   white: '#FFFFFF',
   black: '#000000',
@@ -19,10 +16,6 @@ export const SIZES = {
   f2: 12,
   f3: 14,
   f4: 16,
-
-  // app dimensions
-  width,
-  height,
 };
 
 const appTheme = {COLORS, SIZES};
