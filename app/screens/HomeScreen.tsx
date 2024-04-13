@@ -1,44 +1,76 @@
 import React from 'react';
-import {Pressable, View} from 'react-native';
-import Input from '../component/Input/Input';
-import Search from 'react-native-vector-icons/AntDesign';
-import List from '../component/card/List';
-import {pokemonDummyData} from '../../constants/data';
-interface Pokemon {
-  name: string;
-  url: string;
+import {StyleSheet} from 'react-native';
+import {useInfiniteQuery, QueryFunction} from '@tanstack/react-query';
+import {fetchPokemon} from '../api/api';
+import {FlashList} from '@shopify/flash-list';
+import ListScreen from './ListScreen';
+import {Loader} from '../component/Loader/Loader';
+import {COLORS} from '../../constants/theme';
+import NoData from '../pages/NoData';
+
+interface PokemonResponse {
+  count: number;
+  next: string;
+  previous?: string;
+  results: {
+    name: string;
+    url: string;
+  };
 }
 
-interface HomeScreenProps {
-  navigation: any;
-}
+/**
+ * HomeScreen component displaying a FlashList of ListScreen card data.
+ * Fetches and displays a list of Pokemon.
+ * @returns {JSX.Element} - Rendered component.
+ */
+export function HomeScreen(): React.JSX.Element {
+  // Fetch data using useInfiniteQuery hook
+  const {data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage} =
+    useInfiniteQuery<PokemonResponse, Error>(
+      ['pokemons'],
+      fetchPokemon as QueryFunction<PokemonResponse>,
+      {
+        getNextPageParam: lastPage => lastPage.next,
+      },
+    );
 
-const HomeScreen: React.FC<HomeScreenProps> = ({
-  navigation,
-}): React.ReactElement => {
-  const navigateToDetails = (pokemon: Pokemon) => {
-    navigation.navigate('Details', {pokemon});
+  // Function to load more data
+  const loadMore = () => {
+    if (hasNextPage) {
+      fetchNextPage();
+    }
   };
 
+  // Render loader while data is loading
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  // If no data, return no data page
+  if (!data) {
+    return <NoData />;
+  }
+
   return (
-    <View style={{flex: 1}}>
-      <View>
-        <Input
-          background={'white'}
-          placeholder="Search for Pokemon..."
-          style={{paddingHorizontal: 50}}
-        />
-        <View style={{position: 'absolute', top: 18, left: 15}}>
-          <Search name="search1" size={25} color="grey" />
-        </View>
-      </View>
-      {pokemonDummyData.results.map((pokemon: Pokemon, index: number) => (
-        <Pressable key={index} onPress={() => navigateToDetails(pokemon)}>
-          <List data={pokemon} />
-        </Pressable>
-      ))}
-    </View>
+    // Render FlashList with fetched data
+    <FlashList
+      contentContainerStyle={styles.content}
+      data={data?.pages?.flatMap(page => page.results)}
+      // Provide an estimated item size for better scroll performance
+      estimatedItemSize={62}
+      keyExtractor={item => item?.name}
+      // Render loading indicator at the bottom while fetching next page
+      ListFooterComponent={isFetchingNextPage ? <Loader /> : null}
+      ListFooterComponentStyle={styles.ListFooter}
+      onEndReached={loadMore}
+      renderItem={({item}) => <ListScreen name={item.name} />}
+    />
   );
-};
+}
+
+const styles = StyleSheet.create({
+  content: {padding: 2, backgroundColor: COLORS.white},
+  ListFooter: {paddingVertical: 20},
+});
 
 export default HomeScreen;
