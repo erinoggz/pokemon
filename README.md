@@ -46,34 +46,28 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+## Step 3: Project Documentation
 
-Now that you have successfully run the app, let's modify it.
+### Libraries Used:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+#### React Navigation
+[React Navigation](https://reactnavigation.org/) is used for handling navigation within the Pokémon app. It provides a flexible and easy-to-use navigation solution for React Native applications. With React Navigation, we can seamlessly navigate between different screens, manage navigation state, and customise navigation options.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+#### React Native Vector Icons
+[React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons) is employed to integrate vector icons into the Pokémon app. These icons are essential for enhancing the visual appeal and usability of the application. By using vector icons, we ensure crisp and scalable icons across various screen sizes and resolutions.
 
-## Congratulations! :tada:
+#### React Query
+[React Query](https://react-query.tanstack.com/) is used for data fetching and caching within the Pokémon app. It provides a powerful and intuitive solution for managing asynchronous data in React/React Native applications. With React Query, we can easily fetch data from APIs, handle loading and error states
 
-You've successfully run and modified your React Native App. :partying_face:
+#### FlashList
+The Pokémon app leverages the [FlashList](https://shopify.github.io/flash-list/) component for implementing infinite scroll functionality. FlashList provides a customizable and performant solution for rendering large lists of data with support for feature from FlatList itself. With FlashList, users can seamlessly browse through extensive lists of Pokémon without experiencing lag or delays.
 
-### Now what?
+### Usage:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- **Navigation**: React Navigation is employed to navigate between different screens within the Pokémon app. Users can navigate from the home screen to the details screen to view specific Pokémon details, as well as to the search screen to search for Pokémon by name.
+  
+- **Icons**: React Native Vector Icons is used to integrate visually appealing icons throughout the Pokémon app. Icons are used for various UI elements such as buttons, navigation items, and list items, enhancing the overall user experience.
+  
+- **Data Fetching**: React Query is utilized for fetching Pokémon data from external APIs. This includes fetching individual Pokémon details, Pokémon species information, and search results. React Query simplifies the process of handling asynchronous data fetching, caching, and error handling.
+  
+- **Infinite Scroll**: The FlashList component coupled with React Query is employed to implement infinite scroll functionality for displaying Pokémon lists. As users scroll through the list of Pokémon, additional data is fetched dynamically, allowing for seamless browsing without the need to load all Pokémon data.
